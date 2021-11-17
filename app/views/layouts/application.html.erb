@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if user_signed_in? %>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Store</span>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"button-1 btn-logout" %>
+      </div>
+    </nav>
+    <% end %>
+
+    <div class="container"> 
+        <%= yield %>
+    </div>
   </body>
 </html>

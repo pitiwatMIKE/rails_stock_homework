@@ -1,38 +1,48 @@
-<p id="notice"><%= notice %></p>
-<%= button_to "Logout", destroy_user_session_path, method: :delete %>
-
-<h1>Search</h1>
-    <div>
-        <%= form_with url: "/products/search", method: :get do |form| %>
-        <%= form.label :name, "Search for:" %>
-        <%= form.text_field :name %>
-        <%= form.submit "Search" %>
-        <% end %>
+<div>
+    <% if notice %>
+    <div id="notice" class="alert alert-info" role="alert">
+        <%= notice %>
     </div>
-
-<h1>Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Qty</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.qty %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+      <div class="search">
+        <h1 class="">Search</h1>
+        <div class="input-group mb-3 search-form">
+            <%= form_with url: "/products/search", method: :get do |form| %>
+              <%= form.text_field :name, class:"form-control", placeholder:"Search name product" %>
+              <%= form.submit "Search", class:"button-1 btn-search" %>
+            <% end %>
+        </div>
+      </div>
 
-<%= link_to 'New Product', new_product_path %>
+    <div class="mt-5">
+     <h1 class="mb-3">Products</h1>
+      <button class="button-1 btn-newproduct"><%= link_to 'New Product', new_product_path, style:"color:white" %></button>
+
+
+      <div class="tb-container">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Qty</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= product.name %></td>
+              <td><%= product.qty %></td>
+              <td><button class="button-1 button-edit"><%= link_to 'Edit', edit_product_path(product), style:"color:black" %></button></td>
+              <td><button class="button-1 button-delete"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, style:"color:black"%></button></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  <br>
+
+</div>
