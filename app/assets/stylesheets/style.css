@@ -73,8 +73,6 @@ h1{
 
 .container {
   max-width: 950px;
-  /* display: flex;
-    justify-content: center; */
 }
 
 .search-form {
@@ -218,4 +216,87 @@ table{
 /*   
   background: #A8EB12; */
 
+}
+
+
+/* Authen */
+.wrap-authen{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+  
+}
+
+.wrap-authen > div{
+  width: 40rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 7rem;
+  border-radius: 50px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.signin{
+  background: #f2709c;  
+  background: -webkit-linear-gradient(to right, #ff9472, #f2709c);  
+  background: linear-gradient(to right, #ff9472, #f2709c); 
+}
+
+.signup{
+  background: #70e1f5;
+  background: -webkit-linear-gradient(to right, #ffd194, #70e1f5); 
+  background: linear-gradient(to right, #ffd194, #70e1f5); 
+
+}
+
+.forgot{
+  background: #F09819;  
+  background: -webkit-linear-gradient(to right, #EDDE5D, #F09819);  
+  background: linear-gradient(to right, #EDDE5D, #F09819); 
+}
+
+.wrap-authen h2{
+  color: white;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.actions{
+  text-align: center;
+  
+}
+.actions > .button-1{
+  margin: auto;
+  width: 20em;
+  margin-bottom: 20px;
+}
+
+.rememberme{
+  font-size: 1.1em;
+  font-weight: 700;
+  color: white;
+}
+
+.link{
+  text-align: center;
+  padding: 10px;
+}
+
+.link > a{
+  display: block;
+  font-size: 1.3em;
+  font-weight:  900;
+  /* color: black; */
+}
+
+.link > a:hover{
+  color: white;
 }
