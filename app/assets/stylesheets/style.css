@@ -45,7 +45,7 @@ body, html{
 }
 
 
-input, #notice {
+input, #notice, .input-group-text {
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
@@ -107,7 +107,8 @@ a, a:hover, a:focus, a:active {
 }
 
 .btn-newproduct{
-    background-color:#051937;
+    color: white !important;
+    background-color:#051937 !important;
 }
 
 
@@ -159,6 +160,20 @@ a, a:hover, a:focus, a:active {
 .button-back, .button-back:hover {
   color: white !important;
   background: #845EC2; 
+  margin: auto;
+}
+.back-w{
+  margin-top: 10px;
+  width: 50%;
+}
+
+.button-sendfrom{
+  display: block;
+  width: 100%;
+  color: white;
+  background:#A8EB12;
+  width: 60%;
+  margin: auto;
 }
 
 
@@ -188,3 +203,19 @@ table{
 
 
 /* form edit create */
+.form-container{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 50%;
+  padding: 3em;
+  border-radius: 20px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+  background: #ffb347; 
+  background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  
+  background: linear-gradient(to right, #ffcc33, #ffb347); 
+/*   
+  background: #A8EB12; */
+
+}
