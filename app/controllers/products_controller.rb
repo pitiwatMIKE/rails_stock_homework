@@ -6,11 +6,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
-
-  # GET /products/1 or /products/1.json
-  # def show
-  # end
-
+  
   # GET /products/new
   def new
     @product = Product.new
@@ -26,7 +22,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: "Product was successfully created." }
+        format.html { redirect_to root_path, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +35,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: "Product was successfully updated." }
+        format.html { redirect_to root_path, notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,6 +50,12 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    if params[:name]
+      @product_search = Product.where("lower(name) LIKE?", "%#{params[:name]}%").map{|h| h}
     end
   end
 
