@@ -54,8 +54,10 @@ class ProductsController < ApplicationController
   end
 
   def search
-    if params[:name]
+    if params[:name].present?
       @product_search = Product.where("lower(name) LIKE?", "%#{params[:name]}%").map{|h| h}
+    else
+      redirect_to root_path
     end
   end
 
