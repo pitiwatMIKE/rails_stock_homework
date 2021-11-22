@@ -36,7 +36,7 @@
               <td><%= product.name %></td>
               <td><%= product.qty %></td>
               <td><button class="button-1 button-edit"><%= link_to 'Edit', edit_product_path(product), style:"color:black" %></button></td>
-              <td><button class="button-1 button-delete" data-bs-toggle="modal" data-bs-target="#exampleModal" >Delete</button></td>
+              <td><button class="button-1 button-delete" data-bs-toggle="modal" data-bs-target=<%= "#product#{product.id}" %> >Delete</button></td>
             </tr>
             <%= render 'modal', product: product  %> 
           <% end %>
