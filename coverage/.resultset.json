@@ -4,6 +4,7 @@
       "/home/mike/_workspace/rails/stock_homework/app/models/user.rb": {
         "lines": [
           1,
+          1,
           null,
           null,
           1,
@@ -26,14 +27,6 @@
       },
       "/home/mike/_workspace/rails/stock_homework/app/helpers/products_helper.rb": {
         "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/mike/_workspace/rails/stock_homework/app/models/product.rb": {
-        "lines": [
-          1,
-          1,
           1,
           null
         ]
@@ -167,8 +160,78 @@
         ],
         "branches": {
         }
+      },
+      "/home/mike/_workspace/rails/stock_homework/app/models/ability.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/mike/_workspace/rails/stock_homework/app/models/product.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/mike/_workspace/rails/stock_homework/app/models/role.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1637681225
+    "timestamp": 1637682284
   }
 }
