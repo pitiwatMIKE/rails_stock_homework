@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'ransack'
 gem 'rspec-rails'
+gem 'simplecov', require: false, group: :test
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
