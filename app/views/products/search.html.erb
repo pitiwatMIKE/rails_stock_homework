@@ -15,6 +15,13 @@
           <% @product_search.each do |product| %>
           <% if can? :read, product %>
             <tr>
+              <td>
+              <% if product.main_image.attached? %>
+              <div class="main_image">
+                <%= image_tag product.main_image, class:"rounded mx-auto d-block", height:70, width:70 %>
+              </div>
+              <% end %>
+              </td>
               <td><%= product.name %></td>
               <td><%= product.qty %></td>
               <% if can? :update, product %>
