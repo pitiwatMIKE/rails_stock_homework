@@ -13,15 +13,19 @@
 
         <tbody>
           <% @product_search.each do |product| %>
+          <% if can? :read, product %>
             <tr>
               <td><%= product.name %></td>
               <td><%= product.qty %></td>
+              <% if can? :update, product %>
               <td><button class="button-1 button-edit"><%= link_to 'Edit', edit_product_path(product), style:"color:black" %></button></td>
+              <%end %>
               <% if can? :destroy, product %>
               <td><button class="button-1 button-delete" data-bs-toggle="modal" data-bs-target=<%= "#product#{product.id}" %> >Delete</button></td>
               <% end %>
             </tr>
             <%= render 'modal', product: product  %> 
+            <% end %>
           <% end %>
         </tbody>
       </table>
