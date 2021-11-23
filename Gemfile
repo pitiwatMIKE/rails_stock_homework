@@ -27,6 +27,7 @@ gem 'rspec-rails'
 gem 'simplecov', require: false, group: :test
 gem 'cancancan'
 gem "rolify"
+gem 'rails_admin'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
