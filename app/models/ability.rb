@@ -8,10 +8,10 @@ class Ability
       if user.has_role? :admin
         can :manage, :all
       else
-        can :read, Product, user: user
-        # can :search, Product, user: user
+        #none role
+        can [:read, :search], Product, user: user
+        can [:create, :update], Product
       end
     end
   end
-
 end
