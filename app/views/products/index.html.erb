@@ -30,14 +30,30 @@
           </tr>
         </thead>
 
-        <tbody>
-          <%= turbo_stream_from "products" %>
-          <%= turbo_frame_tag "products" do %>
-            <%= render @products %>
-          <% end %> 
+        <%= turbo_stream_from "products" %>
+        <tbody id="products" is="turbo-frame" >
+        <% @products.each do |product| %>
+          <% if can? :read, product %> 
+            <%= render "products/product", product: product %>
+          <% end %>
+        <% end %>
+
+        </tbody>
+      </table>
+      </div>
+    </div>
+  <br>
+
+</div>
 
 
-          
+
+
+
+
+
+
+
 
           <%
 =begin%>
@@ -64,11 +80,5 @@
             <% end %>
           <% end %> 
 <%
-=end%>
-        </tbody>
-      </table>
-      </div>
-    </div>
-  <br>
-
-</div>
+=end
+%>

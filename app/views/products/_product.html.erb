@@ -1,4 +1,48 @@
-<%= content_tag :tr, id: dom_id(product) do %>
+<%
+=begin%>
+ <%= content_tag :tr, id: dom_id(product) do %>
         <td><%= product.name %></td>
         <td><%= product.qty %></td>
-<% end %>
+<% end %> 
+<%
+=end%>
+
+
+
+
+
+<%= content_tag :tr, id: dom_id(product) do %>
+ <%
+=begin%>
+ <td>
+    <% if product.main_image.attached? %>
+      <div class="main_image">
+        <%= image_tag product.main_image, class:"rounded mx-auto d-block", height:70, width:70 %>
+      </div>
+    <% end %>
+  </td>  
+<%
+=end%>
+
+  <%
+=begin%>
+ <% if can? :destroy, product %>
+    <%= "test can?" %>
+  <% end %> 
+<%
+=end%>
+
+  <td><%= product.name %></td>
+  <td><%= product.qty %></td>
+
+
+    <td>
+        <button class="button-1 button-edit">
+          <%= link_to 'Edit', edit_product_path(product), style:"color:black" %>
+        </button>
+    </td>
+
+    <td><button class="button-1 button-delete" data-bs-toggle="modal" data-bs-target=<%= "#product#{product.id}" %> >Delete</button></td>
+    <%= render 'products/modal', product: product  %> 
+
+<% end %> 

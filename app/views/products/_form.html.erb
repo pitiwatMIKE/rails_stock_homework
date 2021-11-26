@@ -20,9 +20,13 @@
       <%= form.number_field :qty, class:"form-control", placeholder:"Quantity"%>
     </div>
 
-    <div class="field input-group" >
+    <%
+=begin%>
+ <div class="field input-group" >
       <%= form.file_field :main_image,  class:"form-control" ,placeholder:"Choose image"%>
-    </div>
+    </div> 
+<%
+=end%>
 
     <div class="actions">
       <%= form.submit (), class:"button-1 button-sendfrom" %>

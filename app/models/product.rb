@@ -4,13 +4,13 @@ class Product < ApplicationRecord
 
   belongs_to :user
 
-  # has_one_attached :main_image
+  has_one_attached :main_image
 
-  broadcasts
+  # broadcasts
 
-  after_create_commit { broadcast_prepend_later_to "products" }
+  # after_create_commit { broadcast_prepend_later_to "products" }
 
-  # after_create_commit { broadcast_prepend_to "products" }
-  # after_update_commit { broadcast_replace_to "products" }
-  # after_destroy_commit { broadcast_remove_to "products" }
+  after_create_commit { broadcast_prepend_to "products" }
+  after_update_commit { broadcast_replace_to "products" }
+  after_destroy_commit { broadcast_remove_to "products" }
 end

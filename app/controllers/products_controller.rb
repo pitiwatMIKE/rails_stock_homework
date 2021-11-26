@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_product, only: %i[ edit update destroy ]
+  before_action :set_product, only: %i[edit update destroy]
   load_and_authorize_resource
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = Product.all.order("created_at DESC")
+    role_user()
   end
 
   # GET /products/new
@@ -21,11 +22,12 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    role_user()
     respond_to do |format|
       if @product.save
         format.html { redirect_to root_path, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
-        format.turbo_stream { redirect_to root_path }
+        # format.turbo_stream { redirect_to root_path }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -50,7 +52,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -60,6 +62,23 @@ class ProductsController < ApplicationController
       @product_search = Product.where("lower(name) LIKE?", "%#{params[:name]}%").map { |h| h }
     else
       redirect_to root_path
+    end
+  end
+
+  def role_user()
+    role_curren_user = current_user.roles.map(&:name)[0]
+    if "admin" == role_curren_user
+      @role_update = true
+      @role_destroy = true
+    elsif "modulator" == role_curren_user
+      @role_update = true
+      @role_destroy = false
+    elsif "anonymous" == role_curren_user
+      @role_update = false
+      @role_destroy = false
+    else
+      @role_update = true
+      @role_destroy = false
     end
   end
 
