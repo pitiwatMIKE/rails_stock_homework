@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
-  
+
   # GET /products/new
   def new
     @product = Product.new
@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
       if @product.save
         format.html { redirect_to root_path, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
+        format.turbo_stream { redirect_to root_path }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -56,20 +57,21 @@ class ProductsController < ApplicationController
 
   def search
     if params[:name].present?
-      @product_search = Product.where("lower(name) LIKE?", "%#{params[:name]}%").map{|h| h}
+      @product_search = Product.where("lower(name) LIKE?", "%#{params[:name]}%").map { |h| h }
     else
       redirect_to root_path
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def product_params
-      params.require(:product).permit(:name, :qty, :main_image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def product_params
+    params.require(:product).permit(:name, :qty, :main_image)
+  end
 end
