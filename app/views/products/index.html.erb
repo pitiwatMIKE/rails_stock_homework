@@ -30,9 +30,15 @@
             <th colspan="3"></th>
           </tr>
         </thead>
-
-        <tbody>
+        <%= turbo_stream_from "products" %>
+        <tbody id="products" is="turbo-frame">
           <% @products.each do |product| %>
+            <%= render product %>
+          <% end %>
+
+          <%
+=begin%>
+ <% @products.each do |product| %>
           <% if can? :read, product %>
             <tr>
               <td>
@@ -53,7 +59,9 @@
             </tr>
             <%= render 'modal', product: product  %> 
             <% end %>
-          <% end %>
+          <% end %> 
+<%
+=end%>
         </tbody>
       </table>
       </div>
