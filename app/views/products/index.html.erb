@@ -35,10 +35,15 @@
           <% if can? :read, product %>
             <tr>
               <td>
-              <% if product.main_image.attached? %>
+              %= image_tag product.main_image, class:"rounded mx-auto d-block", height:70, width:70 %>
+              <%
+=begin%>
+ <% if product.main_image.attached? %>
               <div class="main_image">
                 <%= image_tag product.main_image, class:"rounded mx-auto d-block", height:70, width:70 %>
-              </div>
+              </div> 
+<%
+=end%>
               <% end %>
               </td>
               <td><%= product.name %></td>
