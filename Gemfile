@@ -28,6 +28,7 @@ gem 'simplecov', require: false, group: :test
 gem 'cancancan'
 gem "rolify"
 gem 'rails_admin'
+gem "aws-sdk-s3", require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
